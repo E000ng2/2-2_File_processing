@@ -1,10 +1,9 @@
 # 파일처리론 과제 #1 Replacement Selection(대체선택) 구현
 
-이 보고서는 **파이썬**에서 **Replacement Selection (대체 선택)** 기법을 구현한 `TestCase` 클래스를 포함한 다양한 코드 예제에 대한 설명과 사용 방법을 다룹니다.
+이 보고서는 **파이썬(python 3.12.7)** 에서 **Replacement Selection (대체 선택)** 기법을 구현한 `TestCase` 클래스를 포함한 다양한 코드 예제에 대한 설명과 사용 방법을 다룹니다.
 **Replacement Selection**은 정렬된 데이터를 효율적으로 생성하기 위해 사용되는 알고리즘입니다.
 이 기법은 **버퍼(buffer)** 를 통해 데이터를 정렬하고 조건을 만족하는 값을 최소화하여, **최종 결과(sorted_runs)** 에 삽입하는 방식으로 동작합니다.
 
-이 문서에서는 `buffer`와 `freeze_flags` 리스트를 관리하는 방법과 `last_popped`을 기준으로 조건을 설정해 데이터를 정리하는 로직을 설명합니다. 
 
 ## Table of contents
 1. [TestCase 클래스 개요](#TestCase-클래스-개요)
@@ -285,7 +284,7 @@ output_w.close()
 ---
 ## 8. 구현 과정의 난관과 해결 전략
 
-### 버퍼 내 freeze기능 구현의 어려움
+### 버퍼 내 freeze기능 구현
 
 * **문제점 :** 
 
@@ -323,8 +322,15 @@ output_w.close()
 
     * 모든 조건을 통해 `buffer`가 비었거나 새로운 값이 없을 경우 `sorted_runs`에 `current_run`을 추가하고, 다음 `Run`을 위한 초기화를 실행하도록 하여 최종적으로 모든 정렬된 결과를 저장
 
-    
+### txt파일 데이터 가공
+ * **문제점 :**
+    * `replacsement_input.txt`파일을 읽어온 데이터의 데이터 형 결정
+
+* **해결 방안 :**
+
+    * 각 테스트 케이스의 길이는 `test_case_sizes.append(int(input_r.readline()))` 형 변환을 통해 정수형으로 `test_case_sizes`리스트에 저장.
+
+    * 각 테스트 케이스의 값은 `test_case_values.append(input_r.readline().strip().split())` 문자형으로 `test_case_values`에 저장 한 후, TestCase 객체를 생성할 때 생성자에서 `self.case_values = list(map(int, case_values))` 정수형으로 형변환. 
 
 
-
-    
+ 
