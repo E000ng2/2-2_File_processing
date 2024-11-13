@@ -273,7 +273,7 @@ output_w.close()
 ```
 
 ---
-## 7. 프로그램 실행 결과
+## 프로그램 실행 결과
 
 ### replacement_selection_tester 결과
 ![replacement_selection_tester Image](./images/replacement_selection_tester.png)
@@ -282,7 +282,7 @@ output_w.close()
 ![replacement_selection_result Image](./images/replacement_selection_result.png)
 
 ---
-## 8. 구현 과정의 난관과 해결 전략
+## 구현 과정의 난관과 해결 전략
 
 ### 버퍼 내 freeze기능 구현
 
