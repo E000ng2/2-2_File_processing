@@ -48,7 +48,6 @@ class BinarySearchTree:
     def __deleteItem(self, bNode, key):
         if bNode is None:  # bNode가 None이면 더 이상 진행할 수 없습니다.
             return None
-
         if (key == bNode.item):
             bNode = self.__deleteNode(bNode)
         elif (key < bNode.item):
